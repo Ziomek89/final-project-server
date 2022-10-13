@@ -37,6 +37,6 @@ app.use(cors({
 
   app.use('/auth', authRoutes);
 
-app.listen('3001', () => {
-    console.log('hey we are listening on port 3001')
+app.listen(process.env.PORT, () => {
+    console.log('hey we are listening on port ' + process.env.PORT)
   });
