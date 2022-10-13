@@ -7,7 +7,7 @@ const morgan = require('morgan');
 
 const { isAuthenticated } = require('./middleware/middleware');
 
-mongoose.connect('mongodb://localhost:27017/projectPokemonCard')
+mongoose.connect(process.env.MONGODB_URI)
   .then(connectObject => {
     console.log(`connected to db ${connectObject.connections[0].name}`);
   })
@@ -19,7 +19,7 @@ app.use(morgan('dev'));
 
 app.use(cors({
     origin: [
-      'http://localhost:3000'
+        process.env.FRONTEND_URI
     ]
   }))
   
